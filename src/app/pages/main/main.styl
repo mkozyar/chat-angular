@@ -12,7 +12,7 @@ mainPadding = 10%
     border-radius: 1% 
     overflow hidden
 
-    .chat-rooms
+    .left-side
         width: 33%
         height: 100%
         background-color: #383c9a
@@ -23,3 +23,39 @@ mainPadding = 10%
 
     .header 
         height: 70px 
+        display: flex
+        justify-content: space-around
+        align-items: center
+        .fa-long-arrow-left, .fa-bars
+            color: #ffffff
+            font-size: 24px
+            cursor: pointer 
+        .room-search
+            input
+                text-align: center 
+                border-radius: 5px
+                outline: 0   
+    .chat-rooms
+        padding: 0 15px
+        .room
+            display: flex
+            justify-content: center
+            align-items: center
+            color: #ffffff
+            height: 70px
+            cursor: pointer
+            :hover
+                background-color: red
+            .info
+                padding: 0 20px
+                flex-grow: 1
+                .nickname
+                    font-size: 24px
+                .description
+                    text-align: left
+                    font-size: 16px
+                    text-overflow: ellipsis
+                
+            img 
+                border-radius: 50%
+                width: 50px            
