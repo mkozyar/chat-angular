@@ -15,7 +15,6 @@
 
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/app/index.css">
     <!-- css files will be automatically insert here -->
     <!-- endinject -->
     <!--<link rel="stylesheet" type="text/css" href="../lib/font-awesome.min.css">-->
@@ -23,16 +22,12 @@
 </head>
 
 <body ng-controller="IndexController">
-    asdafdh123
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 		<!--<app-navigation></app-navigation>-->
-    <!--<div class="app-container" ng-class="{'show': isGraph}">-->
     <div alert-message></div>
     <div ui-view style="height:100%;"></div>
-        <!--<table-graph ng-show="isGraph"></table-graph>-->
-      <!--  <graph ng-show="showGraph"></graph>-->
     <!--</div>-->
       <!-- <job-panel ng-class="{show:showJobStatus}" db="activeJobs" page="pageNum" full="!isShown"></job-panel>
     <job-detail ng-class="{show:showJob}" db="activeJob" targetdb="targetDb" full="!isShown"></job-detail>-->

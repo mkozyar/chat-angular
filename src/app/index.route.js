@@ -11,10 +11,10 @@
         $stateProvider
 
         .state('home', {
-            url: '/home',
+            url: '/',
            
-                templateUrl: 'app/pages/home/asd.html',
-                controller: 'asdController'
+                templateUrl: 'app/pages/main/main.html',
+                controller: 'mainController'
               
             
             
