@@ -1,0 +1,9 @@
+node_modules/
+bower_components/
+typings/
+launch.json
+.sass-cache/
+.idea/
+.tmp/
+dist/
+app-config.js

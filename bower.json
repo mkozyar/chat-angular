@@ -1,0 +1,86 @@
+{
+  "name": "edm",
+  "version": "0.0.0",
+  "dependencies": {
+   
+    "restangular": "=1.5.1",
+    "angular-ui-router": "=0.2.15",
+    "angular": "=1.4.5"
+   
+   
+  },
+  "devDependencies": {
+    "angular-mocks": "=1.4.5"
+  },
+  "resolutions": {
+    "angular": "=1.4.5"
+  },
+  "overrides": {
+    "jGrowl": {
+      "main": [
+        "jquery.jgrowl.min.js",
+        "jquery.jgrowl.min.css"
+      ]
+    },
+    "cryptojslib": {
+      "main": [
+        "rollups/aes.js",
+        "rollups/pbkdf2.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    },
+    "slidereveal": {
+      "main": [
+        "dist/jquery.slidereveal.js"
+      ]
+    },
+    "cytoscape": {
+      "main": [
+        "dist/cytoscape.min.js"
+      ]
+    },
+    "cytoscape-panzoom": {
+      "main": [
+        "cytoscape.js-panzoom.css",
+        "cytoscape-panzoom.js"
+      ]
+    },
+    "js.cytoscape-navigator": {
+      "main": [
+        "cytoscape.js-navigator.css",
+        "cytoscape.js-navigator.js"
+      ]
+    },
+    "cytoscape-qtip": {
+      "main": [
+        "cytoscape-qtip.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "angular-resizable": {
+      "main": [
+        "src/angular-resizable.js",
+        "src/angular-resizable.css"
+      ]
+    }
+  }
+}

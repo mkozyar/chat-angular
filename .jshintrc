@@ -1,0 +1,29 @@
+{
+  "strict": true,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": true,
+  "latedef": false,
+  "noarg": true,
+  "devel": true,
+  "undef": true,
+  "unused": true,
+  "validthis": true,
+  "jasmine": true,
+  "globals": {
+    "_": false,
+    "angular": false,
+    "_": false,
+    "document": false,
+    "localStorage": false,
+    "window": false,
+    "grecaptcha": false,
+    "ROCK_SERVICES": false,
+    "inject": false,
+    "module": false
+  },
+
+
+  "browser":true,
+  "devel":true
+}
