@@ -11,23 +11,27 @@ mainPadding = 10%
     background-color: #fff 
     border-radius: 1% 
     overflow hidden
+    
 
-    .left-side
+    .left-side, .small
         width: 33%
+        min-width: 100px
         height: 100%
         background-color: #383c9a
         overflow hidden
-
+    .small
+        width: 10% !important
+        
     .messages-area       
         width: 67%
         height: 100%
 
-    .header 
+    .header, .reverse 
         height: 70px 
         display: flex
         justify-content: space-around
         align-items: center
-        .fa-long-arrow-left, .fa-bars
+        .fa
             color: #ffffff
             font-size: 24px
             cursor: pointer 
@@ -35,13 +39,20 @@ mainPadding = 10%
             input
                 text-align: center 
                 border-radius: 5px
-                outline: 0   
+                outline: 0 
+    .reverse{
+        flex-direction: row-reverse
+        }          
     .chat-rooms
         padding: 0 15px
         height: 100%
         overflow: auto
-        margin-right: -18px
-        padding-right: 10px
+        margin-right: -28px
+        padding-right: 30px
+        margin-left: -15px
+
+        
+
 
         .room
             display: flex
@@ -50,18 +61,37 @@ mainPadding = 10%
             color: #ffffff
             height: 70px
             cursor: pointer
-            :hover
-                background-color: red
+            padding: 0 10px
+            border-radius: 10px
+       
             .info
                 padding: 0 20px
                 flex-grow: 1
+                width: calc(100% - 150px)
                 .nickname
                     font-size: 24px
                 .description
                     text-align: left
+                    
+                    white-space: nowrap
                     font-size: 16px
+                    overflow: hidden
                     text-overflow: ellipsis
+                    color: #8788bb
+            .time
+                background-color: #36398f
+                width: 50px
+                height: 20px
+                text-align: center  
+                border-radius: 15px 
                 
             img 
                 border-radius: 50%
-                width: 50px            
+                width: 50px   
+
+         .room:hover
+            height: 100px   
+            background-color: #584c9b   
+            background-size: 100%
+
+
