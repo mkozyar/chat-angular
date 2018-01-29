@@ -1,5 +1,5 @@
 <div id="main-container">
-    <div class="{{leftBarVisible? 'left-side': 'small'}}">
+    <div class="{{leftSideClass()}}" >
         <div class="{{leftBarVisible? 'header': 'reverse'}}">
             <div ng-click="toggleLeftBar()">
                 <i class="fa fa-long-arrow-left" aria-hidden="true" ng-if="leftBarVisible"></i>
@@ -32,7 +32,7 @@
         </div>
 
     </div>
-    <div class="messages-area">
+    <div class="{{fullLeftSideWidth()}}">
         <div class="header">
         </div>
     </div>
