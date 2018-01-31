@@ -25,11 +25,11 @@ function mainController($rootScope, $scope, $state, $window, $timeout) {
   $scope.screenWidth = window.innerWidth;
 
   function windowResize() {
-    setTimeout(function(){
-   
-    $scope.screenWidth = window.innerWidth;
-    $state.reload()
-  })
+    setTimeout(function () {
+
+      $scope.screenWidth = window.innerWidth;
+      $state.reload()
+    })
 
   }
 
@@ -37,23 +37,23 @@ function mainController($rootScope, $scope, $state, $window, $timeout) {
 
 
   $scope.fullLeftSideWidth = function () {
-    if ($scope.leftBarVisible && $scope.screenWidth < 900) {
-      return 'null-width'
+    if ($scope.leftBarVisible && $scope.screenWidth < 700) {
+      return 'display-none'
     }
-    if ($scope.leftBarVisible && $scope.screenWidth > 900) {
+    if ($scope.leftBarVisible && $scope.screenWidth > 700) {
       return 'messages-area'
-    } 
+    }
     else
       return 'messages-area full-width'
   }
 
   $scope.leftSideClass = function () {
-    if ($scope.leftBarVisible && $scope.screenWidth > 900) {
+    if ($scope.leftBarVisible && $scope.screenWidth > 700) {
       return 'left-side'
 
     }
-    if ($scope.leftBarVisible && $scope.screenWidth < 900) {
-      return 'full-width'
+    if ($scope.leftBarVisible && $scope.screenWidth < 700) {
+      return 'left-side-full-width'
 
     }
     else {
@@ -67,7 +67,7 @@ function mainController($rootScope, $scope, $state, $window, $timeout) {
   }
 
   $scope.$watch('screenWidth', function (n, o) {
-    if ($scope.screenWidth < 900) {
+    if ($scope.screenWidth < 700) {
       $scope.leftBarVisible = false
     }
     else {
@@ -75,9 +75,15 @@ function mainController($rootScope, $scope, $state, $window, $timeout) {
     }
   })
 
+  $scope.scrollTop = $('div.date:last').offset().top + 10000
+
+  $(document).ready(function () {
+    $('.messages-list').animate({ "scrollTop": $scope.scrollTop },1);
+  });
+
   $scope.$watch('leftBarVisible', function (n, o) {
-    
-    
+
+
   })
 
 }

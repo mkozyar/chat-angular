@@ -13,23 +13,23 @@ mainPadding = 10%
     overflow hidden
     
 
-    .left-side, .small, .full-width
+    .left-side, .small, .left-side-full-width
         width: 33%
-        min-width: 100px
+        min-width: 250px
         height: 100%
         background-color: #383c9a
         overflow hidden
+    .left-side-full-width
+        width: 100%    
     .small
-        width: 10% !important
+        width: 10% 
+        min-width: 60px
         
-    .messages-area       
-        width: 67%
-        height: 100%
-        background-color: green
-    .null-width
-        width: 0  
+    
+    .display-none
+        display: none 
     .full-width
-        width: 100%      
+         width: calc(100% - 60px)     
 
     .header, .reverse 
         height: 70px 
@@ -53,7 +53,7 @@ mainPadding = 10%
         height: 100%
         overflow: auto
         margin-right: -28px
-        padding-right: 15px
+        padding-right: 28px
         margin-left: -15px
 
         
@@ -74,12 +74,11 @@ mainPadding = 10%
                 flex-grow: 1
                 width: calc(100% - 150px)
                 .nickname
-                    font-size: 24px
+                    font-size: 18px
                 .description
                     text-align: left
                     
                     white-space: nowrap
-                    font-size: 16px
                     overflow: hidden
                     text-overflow: ellipsis
                     color: #8788bb
@@ -99,4 +98,74 @@ mainPadding = 10%
             background-color: #584c9b   
             background-size: 100%
 
-
+    .messages-area       
+        width: 67%
+        height: 100%
+        background-color: #fff
+        .header
+            .messages-search
+                input
+                    background-color: #eeeefa
+                    text-align: center 
+                    border-radius: 5px
+                    width: 200px
+                    height: 20px
+                    outline: 0 
+                .fa-search
+                    font-size: 20px !important
+                    position: relative
+                    top: 3px
+                    right: 27px    
+        .messages-list
+            overflow: auto
+            height: calc(100% - 160px)
+            padding-right: 17px
+            margin-right: -17px
+            
+            .message, .my-message
+                 display: flex
+                 align-items: flex-end
+                 justify-content: flex-start
+                 width: 80%
+                 margin: 5px
+                 
+                .avatar
+                    img 
+                        border-radius: 50%
+                        width: 30px
+                .message-text
+                    max-width: 50%
+                    background-color: #999bd8
+                    padding: 25px
+                    border-radius: 10px
+                    margin: 15px
+                    margin-right: -50px
+                .date
+                    color: #bebef3
+                    margin-bottom: -15px   
+            .message
+                flex-direction: row-reverse
+                float: right
+                .message-text
+                    background-color: #f1f1fb
+                    margin-right: 10px
+                    margin-left: -50px
+        .write-message
+            height: 90px
+            display: flex
+            align-items: center
+            justify-content: center
+            textarea
+                background-color: #eeeefa    
+                border-radius:40px 
+                width: 60%  
+                padding:10px 20px
+                resize: none
+                outline: none
+                overflow: hidden
+            .fa-paper-plane
+                    font-size: 20px !important
+                    position: relative
+                    right: 42px  
+                    color: #ffffff 
+                    cursor: pointer  

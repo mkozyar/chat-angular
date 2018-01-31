@@ -1,5 +1,5 @@
 <div id="main-container">
-    <div class="{{leftSideClass()}}" >
+    <div class="{{leftSideClass()}}">
         <div class="{{leftBarVisible? 'header': 'reverse'}}">
             <div ng-click="toggleLeftBar()">
                 <i class="fa fa-long-arrow-left" aria-hidden="true" ng-if="leftBarVisible"></i>
@@ -34,6 +34,79 @@
     </div>
     <div class="{{fullLeftSideWidth()}}">
         <div class="header">
+            <div class="messages-search">
+                <input type="text">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="messages-list">
+            <div class="message">
+                <div class="avatar">
+                    <img src="app/assets/images/avatar.png" alt="">
+                </div>
+                <div class="message-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
+                    commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!
+                </div>
+                <div class="date">
+                    22:15
+                </div>
+            </div>
+            <div class="my-message">
+                <div class="avatar">
+                    <img src="app/assets/images/avatar.png" alt="">
+                </div>
+                <div class="message-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
+                    commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem ipsum
+                    dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae
+                    odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
+                    ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
+                    molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!
+                </div>
+                <div class="date">
+                    22:15
+                </div>
+            </div>
+            <div class="message">
+                <div class="avatar">
+                    <img src="app/assets/images/avatar.png" alt="">
+                </div>
+                <div class="message-text">
+                    Lorem ipsum dolor sga iam aut debitis!
+                </div>
+                <div class="date">
+                    22:15
+                </div>
+            </div>
+            <div class="my-message">
+                <div class="avatar">
+                    <img src="app/assets/images/avatar.png" alt="">
+                </div>
+                <div class="message-text">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
+                    commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem ipsum
+                    dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae
+                    odit a incidunt quo quia, deserunt aperiam aut debitis!
+                </div>
+                <div class="date">
+                    22:15
+                </div>
+            </div>
+        </div>
+        <div class="write-message">
+            <textarea name="" placeholder="Type something"></textarea>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </div>
     </div>
 </div>
