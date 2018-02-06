@@ -24,6 +24,24 @@
               }
             }
           })
+          .state('home.login', {
+            url: 'login',
+            views: {
+              '@home': {
+                templateUrl: 'app/pages/auth/login/login.html',
+                controller: 'loginController'
+              }
+            }
+          })
+          .state('home.registration', {
+            url: 'registration',
+            views: {
+              '@home': {
+                templateUrl: 'app/pages/auth/registration/registration.html',
+                controller: 'registrationController'
+              }
+            }
+          })
 
 
         $urlRouterProvider.otherwise('/');

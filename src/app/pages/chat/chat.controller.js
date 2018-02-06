@@ -15,8 +15,7 @@ chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout
 
 
 function chatController($rootScope, $scope, $state, $window, $timeout) {
-
-alert(1212)  
+ 
   $scope.screenWidth = window.innerWidth;
 
   window.addEventListener("resize", windowResize);
