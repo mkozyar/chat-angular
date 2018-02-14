@@ -12,16 +12,16 @@
         </div>
     </div>
     <div class="chat-rooms">
-        <div class="room" ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+        <div class="room" ng-repeat="room in rooms" ng-click="getMessages(room.name)">
             <div class="avatar">
                 <img src="app/assets/images/avatar.png" alt="">
             </div>
             <div class="info" ng-if="leftBarVisible">
                 <div class="nickname">
-                    Name{{n}}
+                    {{room.name}}
                 </div>
                 <div class="description">
-                    description description description description description description
+                    {{room.description}}
                 </div>
             </div>
             <div class="time" ng-if="leftBarVisible">
@@ -39,72 +39,22 @@
         </div>
     </div>
     <div class="messages-list">
-        <div class="message">
+        <div class="message" ng-repeat="mes in messages">
             <div class="avatar">
                 <img src="app/assets/images/avatar.png" alt="">
             </div>
             <div class="message-text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
-                commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!
+                {{mes.text}}
             </div>
             <div class="date">
-                22:15
+                {{mes.sentAt}}
             </div>
         </div>
-        <div class="my-message">
-            <div class="avatar">
-                <img src="app/assets/images/avatar.png" alt="">
-            </div>
-            <div class="message-text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
-                commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem ipsum
-                dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae
-                odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem
-                ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam
-                molestiae odit commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!
-            </div>
-            <div class="date">
-                22:15
-            </div>
-        </div>
-        <div class="message">
-            <div class="avatar">
-                <img src="app/assets/images/avatar.png" alt="">
-            </div>
-            <div class="message-text">
-                Lorem ipsum dolor sga iam aut debitis!
-            </div>
-            <div class="date">
-                22:15
-            </div>
-        </div>
-        <div class="my-message">
-            <div class="avatar">
-                <img src="app/assets/images/avatar.png" alt="">
-            </div>
-            <div class="message-text">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae odit
-                commodi dolores. Esse necessitatibus fuga incidunt quo quia, deserunt aperiam aut debitis!Lorem ipsum
-                dolor sit, amet consectetur adipisicing elit. Labore velit vitae expedita ea, sunt architecto nam molestiae
-                odit a incidunt quo quia, deserunt aperiam aut debitis!
-            </div>
-            <div class="date">
-                22:15
-            </div>
-        </div>
+
     </div>
     <div class="write-message">
         <textarea name="" placeholder="Type something"></textarea>
         <i class="fa fa-paper-plane" aria-hidden="true"></i>
     </div>
+    <div class="scroll"></div>
 </div>

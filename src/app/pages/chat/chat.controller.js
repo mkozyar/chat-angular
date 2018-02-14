@@ -10,12 +10,12 @@ angular
   .module('chat')
   .controller('chatController', chatController);
 
-chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout'];
+chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout', 'ChatService'];
 
 
 
-function chatController($rootScope, $scope, $state, $window, $timeout) {
- 
+function chatController($rootScope, $scope, $state, $window, $timeout, ChatService) {
+
   $scope.screenWidth = window.innerWidth;
 
   window.addEventListener("resize", windowResize);
@@ -74,15 +74,33 @@ function chatController($rootScope, $scope, $state, $window, $timeout) {
     }
   })
 
-  $scope.scrollTop = $('div.date:last').offset().top + 10000
+  $scope.scrollTop = $('div.scroll').offset().top + 10000
 
   $(document).ready(function () {
-    $('.messages-list').animate({ "scrollTop": $scope.scrollTop },1);
+    $('.messages-list').animate({ "scrollTop": $scope.scrollTop }, 1);
   });
 
   $scope.$watch('leftBarVisible', function (n, o) {
 
 
   })
+
+  function getChatRooms() {
+    ChatService.getChatRooms()
+      .then(function (data) {
+        $scope.rooms = data
+        console.log($scope.rooms)
+      })
+  }
+  
+  getChatRooms() 
+
+  $scope.getMessages = function (chatRoom) {
+    ChatService.getMessages(chatRoom)
+      .then(function (data) {
+        $scope.messages = data
+        console.log($scope.messages)
+      })
+  }
 
 }
