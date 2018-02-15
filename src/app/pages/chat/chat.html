@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="chat-rooms">
-        <div class="room" ng-repeat="room in rooms" ng-click="getMessages(room.name)">
+        <div class="{{getActiveRoom(room.name)? 'room active':'room'}}" ng-repeat="room in rooms"   ui-sref = "home.chat.messages({chatRoom: room.name})">
             <div class="avatar">
                 <img src="app/assets/images/avatar.png" alt="">
             </div>
@@ -31,30 +31,4 @@
     </div>
 
 </div>
-<div class="{{fullLeftSideWidth()}}">
-    <div class="header">
-        <div class="messages-search">
-            <input type="text">
-            <i class="fa fa-search" aria-hidden="true"></i>
-        </div>
-    </div>
-    <div class="messages-list">
-        <div class="message" ng-repeat="mes in messages">
-            <div class="avatar">
-                <img src="app/assets/images/avatar.png" alt="">
-            </div>
-            <div class="message-text">
-                {{mes.text}}
-            </div>
-            <div class="date">
-                {{mes.sentAt}}
-            </div>
-        </div>
-
-    </div>
-    <div class="write-message">
-        <textarea name="" placeholder="Type something"></textarea>
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>
-    </div>
-    <div class="scroll"></div>
-</div>
+    <div ui-view class="{{fullLeftSideWidth()}}"></div>

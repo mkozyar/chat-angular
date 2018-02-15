@@ -24,6 +24,15 @@
               }
             }
           })
+          .state('home.chat.messages', {
+            url: '/:chatRoom',
+            views: {
+              '@home.chat': {
+                templateUrl: 'app/pages/chat/messages/messages.html',
+                controller: 'messagesController'
+              }
+            }
+          })
           .state('home.login', {
             url: 'login',
             views: {

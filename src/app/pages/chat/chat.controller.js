@@ -13,7 +13,6 @@ angular
 chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout', 'ChatService'];
 
 
-
 function chatController($rootScope, $scope, $state, $window, $timeout, ChatService) {
 
   $scope.screenWidth = window.innerWidth;
@@ -74,33 +73,29 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
     }
   })
 
-  $scope.scrollTop = $('div.scroll').offset().top + 10000
-
-  $(document).ready(function () {
-    $('.messages-list').animate({ "scrollTop": $scope.scrollTop }, 1);
-  });
-
   $scope.$watch('leftBarVisible', function (n, o) {
 
 
   })
 
+
+  $scope.activeRoom = $state.params.chatRoom
+  console.log($scope.activeRoom)
+
   function getChatRooms() {
     ChatService.getChatRooms()
       .then(function (data) {
         $scope.rooms = data
-        console.log($scope.rooms)
       })
   }
-  
-  getChatRooms() 
 
-  $scope.getMessages = function (chatRoom) {
-    ChatService.getMessages(chatRoom)
-      .then(function (data) {
-        $scope.messages = data
-        console.log($scope.messages)
-      })
+  getChatRooms()
+
+  $scope.getActiveRoom = function (room) {
+    if (room === $state.params.chatRoom) {
+      return true
+    }
+    return false
   }
 
 }

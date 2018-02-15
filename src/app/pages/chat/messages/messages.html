@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="messages-search">
+        <input type="text">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+</div>
+<div class="messages-list">
+    <div class="message" ng-repeat="msg in messages">
+        <div class="avatar">
+            <img src="app/assets/images/avatar.png" alt="">
+        </div>
+        <div class="message-text">
+            {{msg.text}}
+        </div>
+        <div class="date">
+            {{msg.sentAt}}
+        </div>
+    </div>
+
+</div>
+<div class="write-message">
+    <textarea name="" placeholder="Type something"></textarea>
+    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+</div>
+<div class="scroll"></div>
