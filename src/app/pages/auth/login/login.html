@@ -8,10 +8,10 @@
         </div>
     </div>
     <div class="login-form">
-        <input type="text" placeholder="LOGIN">
-        <input type="text" placeholder="PASSWORD">
-        <a href="#">Forgot Password?</a>
-        <button>LOGIN</button>
+        <input type="text" placeholder="LOGIN" ng-model = "login">
+        <input type="text" placeholder="PASSWORD" ng-model = "password">
+        <a href="#/login">Forgot Password?</a>
+        <button ng-click="signIn()">LOGIN</button>
     </div>
 
 </div>

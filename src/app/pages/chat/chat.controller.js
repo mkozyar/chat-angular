@@ -79,9 +79,6 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
   })
 
 
-  $scope.activeRoom = $state.params.chatRoom
-  console.log($scope.activeRoom)
-
   function getChatRooms() {
     ChatService.getChatRooms()
       .then(function (data) {

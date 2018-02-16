@@ -13,22 +13,41 @@ angular
     function ($rootScope, $http,  Q, $timeout) {
 
         var URL_MAP = {
-            asd: 'chat'
+          register: 'registration',
+          signIn: 'login',
         }
 
-        function asd() {
-            var url = app.CONFIG.HOST_API + URL_MAP.asd;
+        function register(form) {
+            var url = app.CONFIG.HOST_API + URL_MAP.register;
             return $timeout(function () {
               var d = Q.defer();
-              $http.get(url)
+              $http.post(url, form)
                 .success(function (data) {
-                    console.log(data)
-                  d.resolve(data);
+                  d.resolve();
                 }).error(function (e) {
                   d.reject(e);
                 });
               return d.promise;
             }).catch(function (e) {
+              console.log("duplicate")
+              //AlertMessageService.alertFail(e ? e.message || e : "buildGdprDetails ERROR!");
+              throw e;
+            });
+          };
+
+        function signIn(form) {
+            var url = app.CONFIG.HOST_API + URL_MAP.signIn;
+            return $timeout(function () {
+              var d = Q.defer();
+              $http.post(url, form)
+                .success(function (data) {
+                  d.resolve();
+                }).error(function (e) {
+                  d.reject(e);
+                });
+              return d.promise;
+            }).catch(function (e) {
+              console.log("asd")
               //AlertMessageService.alertFail(e ? e.message || e : "buildGdprDetails ERROR!");
               throw e;
             });
@@ -39,7 +58,8 @@ angular
         return {
           
             URL_MAP: URL_MAP,
-            asd: asd
+            register: register,
+            signIn: signIn
         }
 
     }])
