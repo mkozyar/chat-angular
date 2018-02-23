@@ -41,7 +41,7 @@ angular
               var d = Q.defer();
               $http.post(url, form)
                 .success(function (data) {
-                  d.resolve();
+                  d.resolve(data);
                 }).error(function (e) {
                   d.reject(e);
                 });

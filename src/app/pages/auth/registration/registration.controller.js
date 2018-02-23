@@ -22,10 +22,11 @@ function registrationController($rootScope, $scope, $state, AuthService) {
   $scope.email = ''
 
   $scope.register = function () {
+    var hashedPassword = CryptoJS.HmacSHA1($scope.password, "SecretKey").toString()
     var form = {
       "login": $scope.login,
       "email": $scope.email,
-      "password": $scope.password
+      "password": hashedPassword
     }
 
     AuthService.register(form).then(

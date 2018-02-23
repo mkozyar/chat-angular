@@ -3,6 +3,7 @@
 
 	angular
 		.module('chat', [
-			'ui.router'
+			'ui.router',
+			'angular-jwt'
 		]);
 })();
