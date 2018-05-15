@@ -17,6 +17,34 @@ angular
             getChatRooms: 'chats'
         }
 
+        function objToParams(obj) {
+          var str = '';
+          for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+              if (str != "") {
+                str += "&";
+              }
+              str += key + "=" + encodeURIComponent(obj[key]);
+            }
+          }
+          return str;
+        }
+  
+        function clearEmptyFilters(obj) {
+          if (!obj) {
+            return false;
+          }
+          var o = _.clone(obj);
+          _.each(obj, function (e, k) {
+            if (e === '') {
+              delete o[k];
+            }
+          });
+          return o;
+        }
+
+
+
         function getMessages(chatRoom, token) {
             var url = app.CONFIG.HOST_API + URL_MAP.getMessages + '/' + chatRoom;
             return $timeout(function () {
@@ -34,8 +62,10 @@ angular
             });
           };
 
-          function getChatRooms() {
-            var url = app.CONFIG.HOST_API + URL_MAP.getChatRooms + '/mkozyar';
+          function getChatRooms(filters) {
+           
+            filters = clearEmptyFilters(filters)
+            var url = app.CONFIG.HOST_API + URL_MAP.getChatRooms + '/mkozyar' + '?' + objToParams(filters);
             return $timeout(function () {
               var d = Q.defer();
               $http.get(url)

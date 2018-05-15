@@ -11,7 +11,8 @@ angular
                 return config;
             },
             responseError: function (rejection) {
-                $injector.get('$state').go('home.login')
+                // ToDo uncomment
+                //$injector.get('$state').go('home.login')
                 return
             }
         };

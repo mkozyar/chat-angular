@@ -15,6 +15,10 @@ chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout
 
 function chatController($rootScope, $scope, $state, $window, $timeout, ChatService) {
 
+  $scope.filters = {
+  roomSearch : ''
+  }
+
   $scope.screenWidth = window.innerWidth;
 
   window.addEventListener("resize", windowResize);
@@ -79,14 +83,15 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
   })
 
 
+
   function getChatRooms() {
-    ChatService.getChatRooms()
+    ChatService.getChatRooms($scope.filters)
       .then(function (data) {
         $scope.rooms = data
       })
   }
 
-  getChatRooms()
+  
 
   $scope.getActiveRoom = function (room) {
     if (room === $state.params.chatRoom) {
@@ -94,5 +99,12 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
     }
     return false
   }
+
+
+  $scope.$watchCollection('filters', function (n, o) {
+    getChatRooms($scope.filters);
+    console.log($scope.filters)
+
+  })
 
 }
