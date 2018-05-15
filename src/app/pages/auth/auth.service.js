@@ -15,6 +15,7 @@ angular
         var URL_MAP = {
           register: 'registration',
           signIn: 'login',
+          checkAuth: ''
         }
 
         function register(form) {
@@ -35,19 +36,38 @@ angular
             });
           };
 
-        function signIn(form) {
-            var url = app.CONFIG.HOST_API + URL_MAP.signIn;
+          function checkAuth() {
+            var url = app.CONFIG.HOST_API + URL_MAP.checkAuth;
             return $timeout(function () {
               var d = Q.defer();
-              $http.post(url, form)
+              $http.get(url)
                 .success(function (data) {
-                  d.resolve(data);
+                  console.log('asdasda111')
+                  d.resolve();
                 }).error(function (e) {
                   d.reject(e);
                 });
               return d.promise;
             }).catch(function (e) {
-              console.log("asd")
+              console.log("checkAuth")
+              //AlertMessageService.alertFail(e ? e.message || e : "buildGdprDetails ERROR!");
+              throw e;
+            });
+          };
+
+        function signIn(form) {
+            var url = app.CONFIG.HOST_API + URL_MAP.signIn;
+            return $timeout(function () {
+              var d = Q.defer();
+              $http.post(url, form)
+                .then(function (data) {
+                  d.resolve(data);
+                }, function(){
+                  d.reject()
+                })
+              return d.promise;
+            }).catch(function (e) {
+              console.log("asd err")
               //AlertMessageService.alertFail(e ? e.message || e : "buildGdprDetails ERROR!");
               throw e;
             });
@@ -59,7 +79,8 @@ angular
           
             URL_MAP: URL_MAP,
             register: register,
-            signIn: signIn
+            signIn: signIn,
+            checkAuth: checkAuth
         }
 
     }])

@@ -17,7 +17,7 @@ angular
             getChatRooms: 'chats'
         }
 
-        function getMessages(chatRoom) {
+        function getMessages(chatRoom, token) {
             var url = app.CONFIG.HOST_API + URL_MAP.getMessages + '/' + chatRoom;
             return $timeout(function () {
               var d = Q.defer();

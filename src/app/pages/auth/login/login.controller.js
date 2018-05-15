@@ -27,13 +27,16 @@ $scope.signIn = function () {
   }
   
     AuthService.signIn(form).then(function (res) {
-      var currentUser = jwtHelper.decodeToken(res)
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      
+      localStorage.setItem("currentUser", JSON.stringify(res.data.user));
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      
+
       
      $state.go("home.chat")
     }).catch(function (res) {
     })
 
-  
+    
 }
 }
