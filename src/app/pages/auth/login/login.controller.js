@@ -27,8 +27,8 @@ $scope.signIn = function () {
   }
   
     AuthService.signIn(form).then(function (res) {
-      
       localStorage.setItem("currentUser", JSON.stringify(res.data.user));
+      localStorage.setItem("currentUserAvatar", JSON.stringify(res.data.userAvatar));
       localStorage.setItem("token", JSON.stringify(res.data.token));
       
 

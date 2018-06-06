@@ -5,6 +5,7 @@
 		.module('chat', [
 			'ui.router',
 			'angular-jwt',
-			'ngCookies'
+			'ngCookies',
+			'ngDialog'
 		]);
 })();

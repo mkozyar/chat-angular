@@ -1,32 +1,32 @@
 <div class="{{leftSideClass()}}">
     <div class="{{leftBarVisible? 'header': 'reverse'}}">
         <div ng-click="toggleLeftBar()">
-            <i class="fa fa-arrow-alt-circle-left" aria-hidden="true" ng-if="leftBarVisible"></i>
-            <i class="fa fa-arrow-alt-circle-right" aria-hidden="true" ng-if="!leftBarVisible"></i>
+                <i class="fa fa-arrow-alt-circle-left" aria-hidden="true" ng-if="leftBarVisible"></i>
+                <i class="fa fa-arrow-alt-circle-right" aria-hidden="true" ng-if="!leftBarVisible"></i>
         </div>
         <div class="room-search" ng-if="leftBarVisible">
-            <input type="text" placeholder="search" ng-model = "filters.roomSearch">
+            <input type="text" placeholder="search" ng-model = "filters.friendsSearch">
         </div>
         <div>
             <i class="fa fa-bars" aria-hidden="true" ng-click="showMenuModal()"></i>
         </div>
     </div>
     <div class="chat-rooms">
-        <div class="{{getActiveRoom(room.name)? 'room active':'room'}}" ng-repeat="room in rooms"   ui-sref = "home.chat.messages({chatRoom: room.name})">
+        <div class="{{getActiveRoom(user.name)? 'room active':'room'}}" ng-repeat="user in users">
             <div class="avatar">
-                <img src="app/assets/images/avatar.png" alt="">
+                <img ng-src={{user.avatar}} alt="">
             </div>
             <div class="info" ng-if="leftBarVisible">
                 <div class="nickname">
-                    {{room.name}}
+                    {{user.name}}
                 </div>
                 <div class="description">
-                    {{room.description}}
+                    {{user.status}}
                 </div>
             </div>
-            <div class="time" ng-if="leftBarVisible">
+            <!-- <div class="time" ng-if="leftBarVisible">
                 5 m
-            </div>
+            </div> -->
         </div>
     </div>
 

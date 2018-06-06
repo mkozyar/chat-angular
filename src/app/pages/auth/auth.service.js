@@ -23,11 +23,12 @@ angular
             return $timeout(function () {
               var d = Q.defer();
               $http.post(url, form)
-                .success(function (data) {
+                .then(function (data) {
                   d.resolve();
-                }).error(function (e) {
-                  d.reject(e);
-                });
+                 })
+                //.error(function (e) {
+                //   d.reject(e);
+                // });
               return d.promise;
             }).catch(function (e) {
               console.log("duplicate")
@@ -42,7 +43,6 @@ angular
               var d = Q.defer();
               $http.get(url)
                 .success(function (data) {
-                  console.log('asdasda111')
                   d.resolve();
                 }).error(function (e) {
                   d.reject(e);

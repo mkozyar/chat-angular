@@ -33,6 +33,15 @@
               }
             }
           })
+          .state('home.find-friends', {
+            url: 'find-friends',
+            views: {
+              '@home': {
+                templateUrl: 'app/pages/chat/find-friends/find-friends.html',
+                controller: 'findFriendsController'
+              }
+            }
+          })
           .state('home.login', {
             url: 'login',
             views: {
@@ -53,7 +62,7 @@
           })
 
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/chat');
         //  $locationProvider.html5Mode(true);
       }
     

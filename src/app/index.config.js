@@ -11,8 +11,9 @@ angular
                 return config;
             },
             responseError: function (rejection) {
-                // ToDo uncomment
-                //$injector.get('$state').go('home.login')
+                if(rejection.status == 403){
+                    $injector.get('$state').go('home.login')
+                }
                 return
             }
         };

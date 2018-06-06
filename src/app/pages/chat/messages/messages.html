@@ -5,21 +5,22 @@
     </div>
 </div>
 <div class="messages-list">
-    <div class="message" ng-repeat="msg in messages">
+    <div class="{{msg.sender == currentUser? 'my-message':'message'}}" ng-repeat="msg in messages">
         <div class="avatar">
-            <img src="app/assets/images/avatar.png" alt="">
+            <img ng-src={{myAvatar}} alt="">
         </div>
         <div class="message-text">
             {{msg.text}}
         </div>
         <div class="date">
-            {{msg.sentAt}}
+            {{msg.sentAt.slice(11, 19)}}
+            {{msg.sentAt.slice(0, 10)}}
         </div>
     </div>
 
 </div>
 <div class="write-message">
-    <textarea name="" placeholder="Type something"></textarea>
-    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    <textarea name="" placeholder="Type something" ng-model = "newMsg"></textarea>
+    <i class="fa fa-paper-plane" aria-hidden="true" ng-click = "sendMsg()"></i>
 </div>
 <div class="scroll"></div>

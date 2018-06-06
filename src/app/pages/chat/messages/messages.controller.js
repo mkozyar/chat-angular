@@ -14,20 +14,29 @@ messagesController.$inject = ['$rootScope', '$scope', '$state', '$window', '$tim
 
 
 function messagesController($rootScope, $scope, $state, $window, $timeout, ChatService) {
+
+  $scope.ws = new WebSocket('ws://localhost:3112/')
+
+  $scope.ws.onmessage =  function(data){
+    $state.reload()
+  }
  
 
-   $scope.scrollTop = $('div.scroll').offset().top + 10000
+  $scope.scrollTop = $('div.scroll').offset().top + 10000
 
-   $(document).ready(function () {
-     $('.messages-list').animate({ "scrollTop": $scope.scrollTop }, 1);
-   });
+  $(document).ready(function () {
+    $('.messages-list').animate({ "scrollTop": $scope.scrollTop }, 1);
+  });
 
   $scope.$watch('leftBarVisible', function (n, o) {
 
 
   })
 
- $scope.chatRoom = $state.params.chatRoom
+  $scope.myAvatar = localStorage.getItem("currentUserAvatar").slice(1, -1)
+  $scope.currentUser = localStorage.getItem("currentUser")
+  $scope.newMsg = ''
+  $scope.chatRoom = $state.params.chatRoom
 
   $scope.getMessages = function (chatRoom) {
     ChatService.getMessages(chatRoom)
@@ -36,8 +45,19 @@ function messagesController($rootScope, $scope, $state, $window, $timeout, ChatS
       })
   }
 
-  if($scope.chatRoom ){
+  if ($scope.chatRoom) {
     $scope.getMessages($scope.chatRoom)
+  }
+
+  $scope.sendMsg = function () {
+    if ($scope.newMsg) {
+      ChatService.sendMsg($scope.chatRoom, localStorage.getItem("currentUser"), $scope.newMsg, localStorage.getItem("currentUserAvatar"), new Date()).then(function (res) {
+        //$state.reload()
+
+      })
+      $scope.ws.send('message-text')
+      
+    }
   }
 
 }

@@ -10,15 +10,17 @@ angular
   .module('chat')
   .controller('chatController', chatController);
 
-chatController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout', 'ChatService'];
+chatController.$inject = ['$rootScope', 'ngDialog', '$scope', '$state', '$window', '$timeout', 'ChatService'];
 
 
-function chatController($rootScope, $scope, $state, $window, $timeout, ChatService) {
+function chatController($rootScope, ngDialog, $scope, $state, $window, $timeout, ChatService) {
 
   $scope.filters = {
-  roomSearch : ''
+    roomSearch: ''
   }
-
+  if (localStorage.getItem("currentUser")) {
+    $scope.currentUser = localStorage.getItem("currentUser").replace(/[""]/g, '')
+  }
   $scope.screenWidth = window.innerWidth;
 
   window.addEventListener("resize", windowResize);
@@ -85,13 +87,13 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
 
 
   function getChatRooms() {
-    ChatService.getChatRooms($scope.filters)
+    ChatService.getChatRooms($scope.currentUser, $scope.filters)
       .then(function (data) {
-        $scope.rooms = data
+        $scope.rooms = data.data
       })
   }
 
-  
+
 
   $scope.getActiveRoom = function (room) {
     if (room === $state.params.chatRoom) {
@@ -100,10 +102,17 @@ function chatController($rootScope, $scope, $state, $window, $timeout, ChatServi
     return false
   }
 
+  $scope.showMenuModal = function () {
+    ngDialog.open({
+      template: 'app/pages/chat/modal-menu/modal-menu.html',
+      className: 'ngdialog-theme-plain modal-menu',
+      scope: $scope
+    })
+  }
+
 
   $scope.$watchCollection('filters', function (n, o) {
     getChatRooms($scope.filters);
-    console.log($scope.filters)
 
   })
 

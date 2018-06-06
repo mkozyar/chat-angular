@@ -10,11 +10,11 @@ angular
   .module('chat')
   .controller('registrationController', registrationController);
 
-registrationController.$inject = ['$rootScope', '$scope', '$state', 'AuthService'];
+registrationController.$inject = ['$rootScope', '$scope', '$state', 'AuthService', 'ChatService'];
 
 
 
-function registrationController($rootScope, $scope, $state, AuthService) {
+function registrationController($rootScope, $scope, $state, AuthService, ChatService) {
 
   $scope.login = ''
   $scope.password = ''
@@ -28,14 +28,18 @@ function registrationController($rootScope, $scope, $state, AuthService) {
       "email": $scope.email,
       "password": hashedPassword
     }
-
+    var chatForm = {
+      chatName: $scope.login
+    }
     AuthService.register(form).then(
       function (data) {
-          $scope.login = ''
-          $scope.password = ''
-          $scope.confirmPassword = ''
-          $scope.email = ''
-          $state.go("home.login")
+        $scope.login = ''
+        $scope.password = ''
+        $scope.confirmPassword = ''
+        $scope.email = ''
+        $state.go("home.login")
       })
+    ChatService.createChat(chatForm).then(function () {
+    })
   }
 }

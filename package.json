@@ -6,7 +6,8 @@
   "dependencies": {
     "angular": "^1.6.6",
     "angular-route": "^1.6.6",
-    "gulp-css-scss": "^0.1.0"
+    "gulp-css-scss": "^0.1.0",
+    "ng-dialog": "^1.4.0"
   },
   "bin": {
     "gulp": "./bin/gulp.js"
