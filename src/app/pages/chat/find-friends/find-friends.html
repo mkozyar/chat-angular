@@ -5,14 +5,14 @@
                 <i class="fa fa-arrow-alt-circle-right" aria-hidden="true" ng-if="!leftBarVisible"></i>
         </div>
         <div class="room-search" ng-if="leftBarVisible">
-            <input type="text" placeholder="search" ng-model = "filters.friendsSearch">
+            <input type="text" placeholder="search friends" ng-model = "filters.friendsSearch">
         </div>
         <div>
             <i class="fa fa-bars" aria-hidden="true" ng-click="showMenuModal()"></i>
         </div>
     </div>
     <div class="chat-rooms">
-        <div class="{{getActiveRoom(user.name)? 'room active':'room'}}" ng-repeat="user in users">
+        <div class="{{getActiveUser(user.name)? 'room active':'room'}}" ng-repeat="user in users" ui-sref = "home.find-friends.user({userName: user.name})">
             <div class="avatar">
                 <img ng-src={{user.avatar}} alt="">
             </div>

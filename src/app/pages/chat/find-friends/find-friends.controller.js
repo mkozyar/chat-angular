@@ -10,15 +10,14 @@ angular
     .module('chat')
     .controller('findFriendsController', findFriendsController);
 
-findFriendsController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeout', 'ChatService'];
+findFriendsController.$inject = ['$rootScope', '$scope', 'ngDialog', '$state', '$window', '$timeout', 'ChatService'];
 
 
-function findFriendsController($rootScope, $scope, $state, $window, $timeout, ChatService) {
+function findFriendsController($rootScope, $scope, ngDialog, $state, $window, $timeout, ChatService) {
 
     $scope.filters = {
         friendsSearch: ''
     }
-
     $scope.getUsers = function () {
         if ($scope.filters.friendsSearch) {
             ChatService.getUsers($scope.filters)
@@ -26,6 +25,10 @@ function findFriendsController($rootScope, $scope, $state, $window, $timeout, Ch
                     $scope.users = data.data
                 })
         }
+    }
+
+    $scope.getActiveUser = function(name){
+        return (name == $state.params.userName)
     }
 
 
@@ -95,6 +98,15 @@ function findFriendsController($rootScope, $scope, $state, $window, $timeout, Ch
             $scope.leftBarVisible = true
         }
     })
+
+
+    $scope.showMenuModal = function () {
+        ngDialog.open({
+          template: 'app/pages/chat/modal-menu/modal-menu.html',
+          className: 'ngdialog-theme-plain modal-menu',
+          scope: $scope
+        })
+      }
 
 
 }

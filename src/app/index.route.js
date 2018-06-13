@@ -42,6 +42,15 @@
               }
             }
           })
+          .state('home.find-friends.user', {
+            url: '/:userName',
+            views: {
+              '@home.find-friends': {
+                templateUrl: 'app/pages/chat/find-friends/users/user.html',
+                controller: 'userController'
+              }
+            }
+          })
           .state('home.login', {
             url: 'login',
             views: {
