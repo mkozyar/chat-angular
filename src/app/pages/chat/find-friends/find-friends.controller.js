@@ -18,6 +18,11 @@ function findFriendsController($rootScope, $scope, ngDialog, $state, $window, $t
     $scope.filters = {
         friendsSearch: ''
     }
+
+    if (localStorage.getItem("currentUser")) {
+        $scope.filters.currentUser = localStorage.getItem("currentUser").replace(/[""]/g, '')
+      }
+
     $scope.getUsers = function () {
         if ($scope.filters.friendsSearch) {
             ChatService.getUsers($scope.filters)

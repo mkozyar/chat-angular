@@ -1,9 +1,9 @@
-<div class="user-profile" ng-if = "user.name">
+<div class="user-profile" ng-if = "user.login">
     <div class="user-deteil-wrap">
         <img ng-src={{user.avatar}} alt="">
         <div class="user-detail">
             <div class="user-name">
-                {{user.name}}
+                {{user.login}}
             </div>
             <div class="user-desc">
                 {{user.status}}
@@ -16,6 +16,6 @@
         </div>
     </div>
     <div class = "add-friend">
-        <button>Add to friends</button>
+        <button ng-click = "addToFriends()" ng-disabled="isRequestSent()">{{isRequestSent()? 'The request has been sent':'Add to friends'}}</button>
     </div>
 </div>
