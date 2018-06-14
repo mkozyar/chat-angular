@@ -18,9 +18,9 @@ function chatController($rootScope, ngDialog, $scope, $state, $window, $timeout,
   $scope.filters = {
     roomSearch: ''
   }
-  if (localStorage.getItem("currentUser")) {
-    $scope.currentUser = localStorage.getItem("currentUser").replace(/[""]/g, '')
-  }
+  
+    $scope.currentUser = JSON.parse(localStorage.getItem("currentUser"))
+  
   $scope.screenWidth = window.innerWidth;
 
   window.addEventListener("resize", windowResize);
@@ -106,7 +106,7 @@ function chatController($rootScope, ngDialog, $scope, $state, $window, $timeout,
     ngDialog.open({
       template: 'app/pages/chat/modal-menu/modal-menu.html',
       className: 'ngdialog-theme-plain modal-menu',
-      scope: $scope
+      controller: 'modalMenuController'
     })
   }
 

@@ -19,7 +19,8 @@ angular
         createChat: 'create-chat/',
         getUsers: 'users',
         getUserDetails: 'users/',
-        addToFriends: 'users/edit/'
+        addToFriends: 'users/edit/',
+        getConnections: 'asd'
       }
 
       function objToParams(obj) {
@@ -145,6 +146,21 @@ angular
         });
       }
 
+      function getConnections(filters){
+        var url = app.CONFIG.HOST_API + URL_MAP.getConnections;
+        return $timeout(function () {
+          var d = Q.defer();
+          $http.post(url, filters)
+            .then(function (data) {
+              d.resolve(data);
+            })
+          return d.promise;
+        }).catch(function (e) {
+          //AlertMessageService.alertFail(e ? e.message || e : "getChatRooms ERROR!");
+          throw e;
+        });
+      }
+
       function getUserDetails(userName){
         var url = app.CONFIG.HOST_API + URL_MAP.getUserDetails + userName;
         return $timeout(function () {
@@ -190,7 +206,8 @@ angular
         createChat: createChat,
         getUsers: getUsers,
         getUserDetails: getUserDetails,
-        addToFriends: addToFriends
+        addToFriends: addToFriends,
+        getConnections: getConnections
       }
 
     }])

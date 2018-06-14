@@ -37,7 +37,7 @@
             url: 'find-friends',
             views: {
               '@home': {
-                templateUrl: 'app/pages/chat/find-friends/find-friends.html',
+                templateUrl: 'app/pages/find-friends/find-friends.html',
                 controller: 'findFriendsController'
               }
             }
@@ -46,8 +46,26 @@
             url: '/:userName',
             views: {
               '@home.find-friends': {
-                templateUrl: 'app/pages/chat/find-friends/users/user.html',
+                templateUrl: 'app/pages/find-friends/users/user.html',
                 controller: 'userController'
+              }
+            }
+          })
+          .state('home.connection-requests', {
+            url: 'connection-requests',
+            views: {
+              '@home': {
+                templateUrl: 'app/pages/connection-requests/connection-requests.html',
+                controller: 'connectionRequestsController'
+              }
+            }
+          })
+          .state('home.connection-requests.user', {
+            url: '/:userName',
+            views: {
+              '@home.connection-requests': {
+                templateUrl: 'app/pages/connection-requests/users/user.html',
+                controller: 'connectionUserController'
               }
             }
           })

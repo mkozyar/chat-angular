@@ -1,0 +1,34 @@
+<div class="{{leftSideClass()}}">
+    <div class="{{leftBarVisible? 'header': 'reverse'}}">
+        <div ng-click="toggleLeftBar()">
+                <i class="fa fa-arrow-alt-circle-left" aria-hidden="true" ng-if="leftBarVisible"></i>
+                <i class="fa fa-arrow-alt-circle-right" aria-hidden="true" ng-if="!leftBarVisible"></i>
+        </div>
+        <div class="room-search" ng-if="leftBarVisible">
+            <input type="text" placeholder="search connections" ng-model = "filters.connectionsSearch">
+        </div>
+        <div>
+            <i class="fa fa-bars" aria-hidden="true" ng-click="showMenuModal()"></i>
+        </div>
+    </div>
+    <div class="chat-rooms">
+        <div class="{{getActiveUser(user.login)? 'room active':'room'}}" ng-repeat="user in users" ui-sref = "home.connection-requests.user({userName: user.login})">
+            <div class="avatar">
+                <img ng-src={{user.avatar}} alt="">
+            </div>
+            <div class="info" ng-if="leftBarVisible">
+                <div class="nickname">
+                    {{user.login}}
+                </div>
+                <div class="description">
+                    {{user.status}}
+                </div>
+            </div>
+            <!-- <div class="time" ng-if="leftBarVisible">
+                5 m
+            </div> -->
+        </div>
+    </div>
+
+</div>
+    <div ui-view class="{{fullLeftSideWidth()}}"></div>

@@ -1,35 +1,35 @@
 'use strict';
 
 /**
- * findFriendsController
+ * connectionRequestsController
  *
  * Description
  */
 
 angular
     .module('chat')
-    .controller('findFriendsController', findFriendsController);
+    .controller('connectionRequestsController', connectionRequestsController);
 
-findFriendsController.$inject = ['$rootScope', '$scope', 'ngDialog', '$state', '$window', '$timeout', 'ChatService'];
+    connectionRequestsController.$inject = ['$rootScope', '$scope', 'ngDialog', '$state', '$window', '$timeout', 'ChatService'];
 
 
-function findFriendsController($rootScope, $scope, ngDialog, $state, $window, $timeout, ChatService) {
+function connectionRequestsController($rootScope, $scope, ngDialog, $state, $window, $timeout, ChatService) {
 
     $scope.filters = {
-        friendsSearch: ''
+        connectionsSearch: '',
+        connectionRequests: JSON.parse(localStorage.getItem("connectionRequests")),
+        currentUser: JSON.parse(localStorage.getItem("currentUser"))
     }
 
-    if (localStorage.getItem("currentUser")) {
-        $scope.filters.currentUser = localStorage.getItem("currentUser").replace(/[""]/g, '')
-      }
+      
 
-    $scope.getUsers = function () {
-        if ($scope.filters.friendsSearch) {
-            ChatService.getUsers($scope.filters)
+    $scope.getConnections = function () {
+            ChatService.getConnections($scope.filters)
                 .then(function (data) {
+                    console.log(data)
                     $scope.users = data.data
                 })
-        }
+        
     }
 
     $scope.getActiveUser = function(name){
@@ -37,11 +37,9 @@ function findFriendsController($rootScope, $scope, ngDialog, $state, $window, $t
     }
 
 
-    $scope.$watch('filters.friendsSearch', function (n, o) {
-        if(!$scope.filters.friendsSearch){
-            $scope.users = []
-        }
-        $scope.getUsers()
+    $scope.$watch('filters.connectionsSearch', function (n, o) {
+    
+        $scope.getConnections()
     })
 
 
@@ -109,7 +107,7 @@ function findFriendsController($rootScope, $scope, ngDialog, $state, $window, $t
         ngDialog.open({
           template: 'app/pages/chat/modal-menu/modal-menu.html',
           className: 'ngdialog-theme-plain modal-menu',
-          scope: $scope
+          controller: 'modalMenuController'
         })
       }
 

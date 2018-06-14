@@ -5,9 +5,9 @@
     <div class="menu-item" ui-sref="home.find-friends" ng-click="closeThisDialog()">
         <i class="fa fa-user-edit"></i> Edit profile
     </div>
-    <div class="menu-item" ng-click="closeThisDialog()">
+    <div class="menu-item" ui-sref = "home.connection-requests" ng-click="closeThisDialog()" ng-if = "connectionRequests.length">
         <i class="fa fa-user-friends"></i> Connection requests
-        <span>{{12}}</span>
+        <span>{{connectionRequests.length}}</span>
     </div>
     <div class="menu-item" ui-sref="home.chat" ng-click="closeThisDialog()">
         <i class="fa fa-users"></i> Home

@@ -1,0 +1,22 @@
+<div class="user-profile" ng-if = "user.login">
+    <div class="user-deteil-wrap">
+        <img ng-src={{user.avatar}} alt="">
+        <div class="user-detail">
+            <div class="user-name">
+                {{user.login}}
+            </div>
+            <div class="user-desc">
+                {{user.status}}
+            </div>
+            <div class="user-email">
+                E-mail: {{user.email}}
+            </div>
+           
+    
+        </div>
+    </div>
+    <div class = "confirmation">
+        <button ng-click = "confirm()">Confirm</button>
+        <button ng-click = "reject()" >Reject</button>
+    </div>
+</div>

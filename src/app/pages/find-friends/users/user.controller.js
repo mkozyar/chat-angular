@@ -17,9 +17,9 @@ function userController($rootScope, ngDialog, $scope, $state, $window, $timeout,
 
     $scope.selectedUser = $state.params.userName
 
-    if (localStorage.getItem("currentUser")) {
-        $scope.currentUser = localStorage.getItem("currentUser").replace(/[""]/g, '')
-    }
+    
+        $scope.currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    
 
     $scope.getUserDetails = function () {
         ChatService.getUserDetails($scope.selectedUser).then(function (data) {
