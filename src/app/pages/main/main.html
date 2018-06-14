@@ -1,3 +1,7 @@
 <div id="main-container">
     <div ui-view style = "display: flex; width: 100%" ></div>
+    <div class="logout" ng-if = "authorization">
+        <img ng-src={{currentUserAvatar}} alt="">
+        <div><i class="fa fa-sign-out-alt" title="Logout" ng-click="logout()"></i></div>
+    </div>
 </div>

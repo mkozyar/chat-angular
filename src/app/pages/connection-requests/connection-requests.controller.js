@@ -26,7 +26,6 @@ function connectionRequestsController($rootScope, $scope, ngDialog, $state, $win
     $scope.getConnections = function () {
             ChatService.getConnections($scope.filters)
                 .then(function (data) {
-                    console.log(data)
                     $scope.users = data.data
                 })
         
